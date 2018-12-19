@@ -1,0 +1,77 @@
+# Acknowledgments:
+	* For structure of SYMBOL TABLE and for LALR grammar we have modifed the grammar from here 'https://github.com/divush/csharp-compiler'
+*** HELP HAS BEEN TAKEN FROM 'https://github.com/divush/csharp-compiler' FOR DIFFERENT IMPLEMENTATIONS
+*** FULL code of symbol table has been taken from above.
+  * AS above implementation is for OOP so We have modifiied it for our FUNCTIONAL Language.
+
+
+
+# To generate IR CODE.
+``
+	$ make
+	$ bin/irgen test/<test_file.ml>
+
+``
+// where <test_file.ml>  = test1.ml , test2.ml , test3.ml , test4.ml , test5.ml and it will automatically open the file in firefox.
+
+# To clean bin
+``
+	$ make clean
+
+``
+# Tests for Parsing
+* test1.ml   #basic structure.
+* test2.ml   #basic basic block and if else.
+* test3.ml   #basic while loop and for loop.
+* test4.ml   #nested loops with if else.
+* test5.ml	 #Function calls check.
+
+NOTE:
+[begin end] structure required in blocks (even if single statement) for if, else, while, for etc.
+Otherwise scope might be misunderstood by the compiler
+
+
+
+# Language Features:
+ *  Data Types - int only.
+ *  Operators
+  int:
+     - Unary -> !,-,~,+
+     - Relational ->  <, >, ==, !=
+     - Arithmetic -> +,-,/,%
+     - Logical ops -> &&,||
+     - Assignment -> =
+  bool:
+     - Unary-> !
+     - Logical -> &&,||
+     - Assignment -> =
+
+ * Loops -> for, while
+ * Selection Statements -> if-then, if-then-else
+ * Functions
+    return types -> int
+    argument types -> int
+ * Scoping
+    Implemented as a tree of symbol tables
+ *	pre increment/decrement
+ *	RECURSION
+
+# Features not supported:
+ * post increment/decrement
+ * structs and enums, pointers
+ * comments
+ * switch case and do while
+ * float and double type
+ * One and multidimensional arrays
+
+
+# Description of the files in src/
+ * symtab.py > Code containing symbol table functions.
+ * irgen     > Simple shell script for running parser.py file.
+ * lexer.py  > contains the lexer for OCaml Grammar written by using PLY.
+ * parser.py > Contains Grammar with attributes.
+ * tac.py    > File contains simple code for printing the generated 3 address code.
+
+
+# Dependencies
+	* python2 or python3

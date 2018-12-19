@@ -1,0 +1,42 @@
+# To run OCaml File
+``
+	$ make
+	$ bin/ocaml test/<test_file.ml>
+	$ ./assem
+``
+# To clean bin
+``
+	$ make clean
+
+``
+
+# Language Features:
+ *  Data Types - int only.
+ *  Operators
+  int:
+     - Relational ->  <=, >=, ==, !=
+     - Arithmetic -> +,-,/,%
+     - Logical ops -> &&,||
+     - Assignment -> =
+  bool:
+     - Unary-> !
+     - Logical -> and, or
+     - Assignment -> =
+
+ *	Pre increment/decrement
+
+# Features not supported:
+ * functions
+ * Loops
+ * If-else
+ * post increment/decrement
+ * structs and enums, pointers
+ * comments
+ * switch case and do while
+ * float and double type
+ * One and multidimensional arrays
+
+# Authors
+### Anuj Chauhan
+### Juganu Mantwal 
+

@@ -1,0 +1,37 @@
+#To run Lexer to tokenize <test_file.ml>, do  
+
+``	
+	$ make
+	$ src/lexer test/<test_file.ml>
+
+``
+
+// where <test_file.ml>  = test1.ml , test2.ml , test3.ml , test4.ml , test5.ml
+
+
+#To clean bin
+
+``	
+	$ make clean
+
+``
+
+
+# Tests for Lexer
+*test1.ml   #basic Operators check.
+*test2.ml	#basic types, arrays, strings and functions check.
+*test3.ml	#basic loops and if-then-else statements and intermodule function call check.
+*test4.ml	#Nested begin-end check
+*test5.ml	#Function calls check
+
+
+# Acknowledgments:
+* For implementing Lexer we have taken help for ply implementation from - http://www.dabeaz.com/ply/ply.html
+* For Lexer, we are using ply (python-lex-yacc).
+* The test cases have been taken from - http://xahlee.info/ocaml/ocaml_list.html
+
+
+# Dependencies
+* python2 or python3
+* ply
+

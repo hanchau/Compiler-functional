@@ -1,0 +1,45 @@
+# Acknowledgments:
+	* For structure of code and for LALR grammar we have modifed the grammar from here 'https://github.com/divush/csharp-compiler'
+*** FOR GENERATING THE HTML WE HAVE TAKEN THE FULL CODE FROM 'https://github.com/divush/csharp-compiler'
+  * TO USE ABOVE PARSER WE HAVE MODIFIED OUR ORIGINAL GRAMMAR AND LEXER FILE
+
+
+# To generate html of rightmost derivation do
+``
+	$ make
+	$ bin/parser test/<test_file.ml>
+
+``
+// where <test_file.ml>  = test1.ml , test2.ml , test3.ml , test4.ml , test5.ml and it will automatically open the file in firefox.
+
+# To clean bin
+``
+	$ make clean
+
+``
+
+# Tests for Parsing
+* test1.ml   #basic structure.
+* test2.ml   #basic basic block and if else.
+* test3.ml   #basic while loops .
+* test4.ml   #nested loops with if else.
+* test5.ml	  #Multiple Function calls check.
+
+
+# Description of the files in src/
+ * parser.py contains the parser for OCaml Grammar written by using PLY.
+ * lexer.py  contains the lexer for OCaml Grammar written by using PLY.
+ * parser > Shell script to parse given test file and generate html output via html.cpp.
+ * html.cpp > Code for generating html output. Invoked by parser shell script.
+
+# Description of intermediate files
+
+ * output.txt > Stores the yacc output.
+ * for_tree.txt > Stores the reduction rules used by the parser (extracted from output.txt).
+ * parser.txt > Stores the reverse of parser.txt. Essentially gives rightmost derivations in order.
+ * out.txt > Stores sentential forms for each step in the derivation.
+
+
+# Dependencies
+	* python2 or python3
+  * C++

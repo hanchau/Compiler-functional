@@ -1,0 +1,68 @@
+#To run TAC to .x86, <test_file.ir>, do
+
+``
+	$ make
+	$ src/codegen test/<test_file.ir>
+
+``
+// where <test_file.ml>  = test1.ir , test2.ir , test3.ir , test4.ir , test5.ir
+
+#To clean bin
+
+``
+	$ make clean
+
+``
+
+
+# Tests for TAC to x86 generation
+*test1.ir   #basic Operators and single function check.
+*test2.ir   #basic ifgoto, goto, print check.
+*test3.ir   #basic loops and if-then-else statements check.
+*test4.ir   #recursive functions check.
+*test5.ir	  #Multiple Function calls check.
+
+
+#IR specification and syntax.
+*    Syntax: line_number, operator, arg1, [arg2, ...]
+*    A. MATHEMATICAL OPERATIONS ['+', '-', '*', '/', 'MOD']
+     LineNo, operator, destination, arg1, arg2
+*    B. CONDITIONAL JUMPS ['<=', '>=', '==', '<>', '<-']
+     LineNo, ifgoto, condition, operand1, operand2, LineNo_to_GO_to
+*    C. UNCONDITIONAL JUMPS
+     LineNo, goto, LineNo_to_go_to
+*    D. ASSIGNEMENT INSTRUCTION
+     LineNo, <-, dest_var, source_var
+*    E. FUNCTION CALLS
+     LineNo, call, <function_name>, arg_num
+*    F. CODE LABELS
+     LineNo, label, <label_name>
+*    G. EXIT CALL
+     LineNo, exit
+*    H. PRINT INSTRUCTION
+     LineNo, print, <var_name>
+*    I. FUNCTION DEFINITIONS
+     LineNo, function, <function_name>
+*    J. RETURN FROM FUNCTION
+     LineNo, return
+
+#Description of the Code
+#IMPLEMENTATION DETAILS:
+*There are four main files for this assignment:
+
+  * CodeGen.py: This reads the Highlevel Intermediate language and firstly breaks into lines and then pass each intruction to the TransInstr code.
+
+  * TransInstr.py: This converts the TAC one instruction to the x86 code. It contains all the IR implementations like [math operators, conditional jumps, Unconditional jumps, function calls, return, exit]
+
+  * RegAllocatFunc.py: This file contains all useful functions for setting and getting registers and locations of variables like [getReg, setReg, getLoc, setLoc, isNum]
+
+  * GlobalVariables.py:It Contains all the Global Variables like [registers, adrsdscrptr, next_use_table, var_list, and assembly].
+
+
+# Acknowledgments:
+	* For IR TAC to x86 we have taken help from 'Dragon BOOK' and 'https://github.com/divush/csharp-compiler' ,
+	* For Structure of Code we have referenced 'https://onedrive.live.com/?authkey=%21ALD0NKzIztCX9bM&id=DF712A9D016E90A5%2117483&cid=DF712A9D016E90A5'
+	* Test Cases are taken from 'https://github.com/divush/csharp-compiler'
+
+# Dependencies
+	* python2 or python3
